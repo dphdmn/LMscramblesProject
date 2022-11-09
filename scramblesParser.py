@@ -72,7 +72,3 @@ def parse(replaysPath, inputFile, outputFile, timezone):
                 observ=row["observ"], time=row["time"], date=row["date"], size=row["size"], scramble=row["scramble"],
                 moves=row["moves"], tps=row["tps"], extra=row["extra"])
             out.write(s)
-
-
-if __name__ == '__main__':
-    parse()
