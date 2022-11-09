@@ -5,7 +5,7 @@ import re
 import glob
 
 
-def parse(replaysPath, inputFile, outputFile):
+def parse(replaysPath, inputFile, outputFile, timezone):
     scramble_re = "\d+:\d+((:\d+)*)?-\d+:\d+((:\d+)*)?(-\d+:\d+((:\d+)*)?)*"
     lens = [0, 0, 0, 17, 37, 64, 97, 136, 181, 232, 289]
     info = []
@@ -48,7 +48,7 @@ def parse(replaysPath, inputFile, outputFile):
         data["moves"] = line[5]
         data["tps"] = line[6]
         data["date"] = line[7]
-        data["unix"] = datetime.datetime.strptime(data["date"], "%Y-%m-%d %H:%M:%S").timestamp()
+        data["unix"] = datetime.datetime.strptime(data["date"], "%Y-%m-%d %H:%M:%S").timestamp() + timezone*60*60
         mysolves.append(data)
     for solve in mysolves:
         scramble = "Not found in replays"
