@@ -30,7 +30,7 @@ def getRYBgradient(amounts):
 
 
 def calibriFont(size):
-    return ImageFont.truetype("calibri_font.ttf", size)
+    return ImageFont.truetype("Pillow/Tests/fonts/FreeMono.ttf", size)
 
 
 def getPartsAverages(fd):
@@ -100,7 +100,6 @@ def drawImage(fd, res):
         else:
             head = '{fr} - {t}'.format(fr=i * 10 - 10, t=i * 10 - 1)
         headers10.append(head)
-    print(headers10)
     validtimes = []
     for i in fd:
         if not i["empty"]:
@@ -226,7 +225,6 @@ def analyseOptimal(optimalStats):
             el["dif"] = min["mvc"] - i
             el["tps"] = round(min["mvc"] / min["time"], 3)
             el["efftps"] = round(i / min["time"], 3)
-            print(el)
         freqData.append(el)
     return freqData
 
