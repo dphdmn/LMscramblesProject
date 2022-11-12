@@ -29,8 +29,8 @@ def getRYBgradient(amounts):
     return epicGradient(["#004000", "#00FF00", "#FFFF00", "#FF0000", "#400000"], amounts)
 
 
-def calibriFont(size):
-    return ImageFont.truetype("Pillow/Tests/fonts/FreeMono.ttf", size)
+def calibriFont(size, fontpath):
+    return ImageFont.truetype(fontpath, size)
 
 
 def getPartsAverages(fd):
@@ -67,7 +67,7 @@ def getNormalColor(fastest, slowest, timelist):
     return timecolors
 
 
-def drawImage(fd, res):
+def drawImage(fd, res, fontpath):
     parts, avgeffs = getPartsAverages(fd)
     W = res
     H = int(res * 1.4)
@@ -80,9 +80,9 @@ def drawImage(fd, res):
     fontsizeTime = int(cellsize / 3)
     fontsizeHeaders = int(cellsize / 4)
     fontsizeVerySmall = int(cellsize / 6)
-    timeFont = calibriFont(fontsizeTime)
-    headersFont = calibriFont(fontsizeHeaders)
-    verySmalFont = calibriFont(fontsizeVerySmall)
+    timeFont = calibriFont(fontsizeTime, fontpath)
+    headersFont = calibriFont(fontsizeHeaders, fontpath)
+    verySmalFont = calibriFont(fontsizeVerySmall, fontpath)
     outlineW = int(cellsize / 30)
     startX, startY = margin + xshift, margin + yshift
     gapshift = res / 100
@@ -228,7 +228,7 @@ def analyseOptimal(optimalStats):
         freqData.append(el)
     return freqData
 
-def analyseAndRender(stats, resolution, path):
+def analyseAndRender(stats, resolution, path, fontpath):
     fd = analyseOptimal(stats)
-    image = drawImage(fd, resolution)
+    image = drawImage(fd, resolution, fontpath)
     image.save(path)
