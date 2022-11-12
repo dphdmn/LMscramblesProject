@@ -197,7 +197,7 @@ def drawImage(fd, res):
                           fill=goodTextColor(bgcolor),
                           align='center',
                           anchor='ms')
-    image.show()
+    return image
 
 
 def analyseOptimal(optimalStats):
@@ -229,3 +229,8 @@ def analyseOptimal(optimalStats):
             print(el)
         freqData.append(el)
     return freqData
+
+def analyseAndRender(stats, resolution, path):
+    fd = analyseOptimal(stats)
+    image = drawImage(fd, resolution)
+    image.save(path)
