@@ -64,7 +64,7 @@ def parse(replaysPath, inputFile, outputFile, timezone):
                 break
         solve["scramble"] = scramble
         solve["extra"] = extra
-    with open(outputFile, 'w') as out:
+    with open(outputFile, 'w+') as out:
         s = "Size\tDate\tTimestamp error\tObservation Time\tTime\tMoves\tTPS\tScramble\n"
         out.write(s)
         for row in mysolves:
