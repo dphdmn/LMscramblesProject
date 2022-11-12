@@ -229,7 +229,3 @@ def analyseOptimal(optimalStats):
             print(el)
         freqData.append(el)
     return freqData
-
-
-fd = analyseOptimal("stats.txt")
-drawImage(fd, 2000)
