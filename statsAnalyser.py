@@ -228,6 +228,7 @@ def analyseOptimal(optimalStats):
         freqData.append(el)
     return freqData
 
+
 def analyseAndRender(stats, resolution, path, fontpath):
     fd = analyseOptimal(stats)
     image = drawImage(fd, resolution, fontpath)
