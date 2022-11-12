@@ -22,6 +22,6 @@ def insertSolutions(solutionsFile, outputFile, statsinfoFile):
     with open(outputFile, 'w') as file:
         for solve in solvesdata:
             file.write('\t'.join(solve) + '\n')
-    with open(statsinfoFile, "w") as file:
+    with open(statsinfoFile, "w+") as file:
         for stat in stats:
             file.write('\t'.join(stat) + '\n')
